@@ -1,0 +1,338 @@
+<!doctype html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+<meta charset="utf-8">
+<title>Rock Paper Scissors Shoot!</title>
+<style>
+
+.choose img {
+width: 150px;
+margin: 20px;   
+}
+#result {color:red}
+#question{
+   widows: max-content;
+}
+
+
+
+#score{
+    color: chocolate;
+    font-size: 25px;
+}
+.sc{
+    color: #70c9d4;
+}
+.img-all{
+    border-radius: 50%;
+    border: solid #D24D57; 3px;
+    padding: 10px;
+}
+#div-choose{
+    width: max-content;
+    height: max-content;
+  
+}
+table{
+    height: max-content;
+    width: 100%;
+    color: white;
+    position: relative;
+    top: 14px;
+    left: 231px;
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+	background: #353535;
+	color: #FFF;
+}
+.jumbotron h1 {
+	color: #353535;
+}
+footer {
+  margin-bottom: 0 !important;
+  margin-top: 80px;
+}
+footer p {
+  margin: 0;
+  padding: 0;
+}
+span.icon {
+	margin: 0 5px;
+	color: #D64541;
+}
+h2 {
+	color: #BDC3C7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.mrng-60-top {
+	margin-top: 60px;
+}
+
+
+
+/* Global Button Styles */
+a.animated-button:link, a.animated-button:visited {
+	position: relative;
+	display: block;
+	margin: 30px auto 0;
+	padding: 14px 15px;
+	color: #fff;
+	font-size:14px;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	overflow: hidden;
+	letter-spacing: .08em;
+	border-radius: 0;
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	transition: all 1s ease;
+}
+a.animated-button:link:after, a.animated-button:visited:after {
+	content: "";
+	position: absolute;
+	height: 0%;
+	left: 50%;
+	top: 50%;
+	width: 150%;
+	z-index: -1;
+	-webkit-transition: all 0.75s ease 0s;
+	-moz-transition: all 0.75s ease 0s;
+	-o-transition: all 0.75s ease 0s;
+	transition: all 0.75s ease 0s;
+}
+a.animated-button:link:hover, a.animated-button:visited:hover {
+	color: #FFF;
+	text-shadow: none;
+}
+a.animated-button:link:hover:after, a.animated-button:visited:hover:after {
+	height: 450%;
+}
+a.animated-button:link, a.animated-button:visited {
+	position: relative;
+	display: block;
+	margin: 30px auto 0;
+	padding: 14px 15px;
+	color: #fff;
+	font-size:14px;
+	border-radius: 0;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	overflow: hidden;
+	letter-spacing: .08em;
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	transition: all 1s ease;
+}
+
+/* Victoria Buttons */
+
+a.animated-button.victoria-one {
+	border: 2px solid #D24D57;
+}
+a.animated-button.victoria-one:after {
+	background: #D24D57;
+	-moz-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+	-ms-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+	-webkit-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+	transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+}
+a.animated-button.victoria-two {
+	border: 2px solid #D24D57;
+}
+a.animated-button.victoria-two:after {
+	background: #D24D57;
+	-moz-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+	-ms-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+	-webkit-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+	transform: translateX(-50%) translateY(-50%) rotate(25deg);
+}
+a.animated-button.victoria-three {
+	border: 2px solid #D24D57;
+}
+a.animated-button.victoria-three:after {
+	background: #D24D57;
+	opacity: .5;
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+}
+a.animated-button.victoria-three:hover:after {
+	height: 140%;
+	opacity: 1;
+}
+a.animated-button.victoria-four {
+	border: 2px solid #D24D57;
+}
+a.animated-button.victoria-four:after {
+	background: #D24D57;
+	opacity: .5;
+	-moz-transform: translateY(-50%) translateX(-50%) rotate(90deg);
+	-ms-transform: translateY(-50%) translateX(-50%) rotate(90deg);
+	-webkit-transform: translateY(-50%) translateX(-50%) rotate(90deg);
+	transform: translateY(-50%) translateX(-50%) rotate(90deg);
+}
+a.animated-button.victoria-four:hover:after {
+	opacity: 1;
+	height: 600% !important;
+}
+</style>
+
+
+</head>
+
+<body>
+    <!--  Div-Head-Content -->
+        <div class="choose" align="center">
+        <div id="content">
+                <div class="col-md-3 col-sm-3 col-xs-6" id="question" onclick="reload()">
+                     <a href="#" class="btn btn-sm animated-button victoria-two">Rock - Paper - Scissors</a>
+                     </div>
+        </div>
+
+   <!-- Div Main -->
+        <div id="div-main">
+            <table>
+                <tr>
+                    <td id="first-td">
+                        <h2 class="table-content">You Selected :</h2>
+                        <div id="first-box">
+
+                        </div>
+                        
+                    </td>
+                    <td id="second-td">
+                        <h2 class="table-content">Computer Selected :</h2>
+                        <div id="second-box">
+
+                            </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+   <!-- Div choose -->
+        <div id="div-choose">          
+        <h2 id="result"></h2>
+        <h2 id="score">You <span id="playerScore" class="sc">0</span> - <span id="computerScore" class="sc">0</span> Computer</h2>
+        
+        <img alt="Rock" src="rock.png" id="rock" class="img-all">
+        <img alt="Paper" src="paper.png" id="paper" class="img-all">
+        <img alt="Scissors" src="scissors.png" id="scissors" class="img-all">
+        </div>
+</div>
+
+
+<!--  Script  -->
+<script>
+    $(document).ready(function(){
+$(function(){
+// function reload(){
+//     location.reload();
+// }
+$("#question").click(function() {
+         $("#question").load("index.php")
+      })
+var computerScore=0,
+    playerScore=0;
+
+function setText(txt){
+$("#playerScore").text(playerScore);
+$("#computerScore").text(computerScore);
+$("#result").text(txt);
+}
+
+function makeComputerChoice(){
+  var computerChoice = "";
+  var r = Math.random();
+  if (r < .33) {
+    computerChoice = "rock";
+   // $("#second-box").setAttribute("src", "rock.png");
+  } else if (r < .66) {
+    computerChoice = "paper";
+   // $("#second-box").setAttribute("src", "paper.png");
+  } else {
+    computerChoice = "scissors";
+   // $("#second-box").setAttribute("src", "scissors.png");
+  }
+
+  return computerChoice;
+ }
+
+
+function makeUserChoice(userChoice){
+  var computerChoiceprev =  makeComputerChoice();
+  var computerChoice = computerChoiceprev.trim();
+  var outcome = "";
+  if(document.getElementById("first-box").innerHTML!="")
+  { 
+        document.getElementById("first-box").innerHTML="";
+  }
+    if(document.getElementById("second-box").innerHTML!="")  
+  { 
+  document.getElementById("second-box").innerHTML="";
+  
+  }
+        var img1=document.createElement("img");
+            img1.src=userChoice+".png";
+            img1.id="img-main1";
+            document.getElementById("first-box").appendChild(img1);
+
+        var img=document.createElement("img");
+            img.src=computerChoice+".png";
+            img.id="img-main2";
+            document.getElementById("second-box").appendChild(img);
+
+        if (userChoice == computerChoice) {
+            outcome="Tie!";
+        } 
+        else if (userChoice == "rock") {
+            if (computerChoice == "scissors") {
+                outcome="You win!"; playerScore=playerScore+1;
+            } else {
+                outcome="You lose."; computerScore=computerScore+1;
+            };
+        } 
+        else if (userChoice == "paper") {
+            if (computerChoice == "rock") {
+                outcome="You win!"; playerScore=playerScore+1;
+            } else {
+                outcome="You lose."; computerScore=computerScore+1;
+            };
+        } else if (userChoice == "scissors") {
+            if (computerChoice == "paper") {
+                outcome="You win!"; playerScore=playerScore+1;
+            } else {
+                outcome="You lose"; computerScore=computerScore+1;
+            };
+        };
+  setText(userChoice+" vs "+computerChoice+" = "+outcome);
+};
+
+ //add event listeners:
+ $('#rock').click(function() {
+        makeUserChoice("rock");
+    });
+    $('#paper').click(function() {
+        makeUserChoice("paper");
+    });
+    $('#scissors').click(function() {
+        makeUserChoice("scissors");
+    });
+});
+});
+</script>
+</body>
+</html>
