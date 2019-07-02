@@ -1,5 +1,6 @@
-# appointy-tech-task2
+# appointy-backend-internship-interview-round-task-2
 
-## its web version
 
-## with user friendly gui
+## its web version -- rock paper scissor mini logic
+
+## with animated gui
